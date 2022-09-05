@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    #root {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #root>div {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+      font-size: 2.5rem;
+      margin-left: 3%;
+    }
+
+    #root > div > div {
+      width: 8vw;
+      height: 5vh;
+      
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script>
+    const root = document.getElementById('root');
+
+    let aa = 1;
+    let bb = 1;
+    let cc = 9
+    let dd = aa*bb;
+    let divTag = "<div>";
+    const divArr = [divTag];
+    let multiplyCounter = 0;
+    const sigmaArr = [];
+    const testArr = [];
+    const ggArr = [];
+
+    const multi = (a, b, c, arr, sigma) => {
+      if(a < 0 || b < 0) {
+        Math.abs(a);
+        Math.abs(b);
+      }
+      let intA = parseInt(a);
+      let intB = parseInt(b);
+      while (true) {
+        if (intA === c + 1) {
+          arr.pop();
+          let gugu = arr.join('');
+          //console.log(gugu);
+          root.innerHTML = gugu;
+          console.log(`multiplyCounter = ${multiplyCounter}`);
+          // arr.forEach((value)=> {
+          //   root.innerHTML = value;
+          //   console.log(value);
+          // });
+          break;
+        }
+
+        let d = intA * intB;
+        sigma.push(d);
+        testArr.push(d);
+        multiplyCounter++;
+        const googoo = `<div>${intA} X ${intB} 은(는) ${d}</div>`;
+        arr.push(googoo);
+        
+        //root.innerHTML = `<div>${a} X ${b} = ${d}</div>`;
+        //console.log(d);
+        if (intB === c) {
+          intB = 0;
+          intA++;
+          divArr.push("</div>");
+          divArr.push(divTag);
+          const guguSum =  testArr.reduce((acc, elem, i, array) => (acc+elem), 0);
+          ggArr.push(guguSum);
+
+          //console.log(testSum);
+          // const testSum = testArr.reduce((acc, elem, i, array) => {
+          //   //console.log(typeof(i));
+          //   acc = acc + elem;
+          //   console.log(acc);
+          //   // if(i%9 === 0) {
+          //   //   console.log(i - 1);
+          //   //   //console.log(acc);
+          //   // }            
+          //   return acc + elem;
+          // });
+          //testArr.length = 0;
+          // const result = sigma.reduceRight((acc, elem, i, array)=> {
+          //     console.log(`acc: ${acc} elem: ${elem} i: ${i}`);         
+          //     if(i===8) {
+          //       console.log(`역방향 ${elem}`)
+          //     }
+
+          //     //console.log(array);
+          //     return acc+elem;
+          // });
+          // // console.log(result);
+          //  sigma.reduce((acc, elem, i, array)=>{
+          //   if(i === 8) {
+          //     console.log(`정방향 ${elem}`)
+          //   }
+          //    // console.log(acc);
+          //    // console.log(elem);
+          //    // console.log(index);
+          //    // console.log(array);
+          //  });
+          //sigma.length = 0;
+        }
+        intB++;
+      }
+      //console.log(sigmaArr);
+    }
+
+    multi(aa, bb, cc, divArr, sigmaArr);
+
+    console.log(ggArr);
+    const guguSigmaArr = [];
+    for(let i = 0; i<ggArr.length; i++){ 
+      if(ggArr[i-1] === undefined) {
+          console.log(ggArr[i]);
+          guguSigmaArr.push(ggArr[i]);
+      } else {
+      const result = ggArr[i] - ggArr[i-1];
+      guguSigmaArr.push(result);
+      console.log(result);
+      }
+    }
+    console.log(guguSigmaArr);
+    // function guguSum (sigArr) {
+    //   sigArr.reduce((acc, elem, indexArr, array) => {
+    //     //console.log(acc, elem, i);
+    //     if(indexArr % 9 === 0) {
+    //       console.log(array[indexArr - 1]);
+    //       //console.log(array[array.length - 1]);
+    //       //console.log(i-1);
+    //       //console.log(acc, elem, i);
+    //     }
+    //   });      
+    // }
+
+  //guguSum(sigmaArr);
+  
+  </script>
+</body>
+
+</html>
