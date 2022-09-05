@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    const root = document.getElementById('root');
+    root.style.width = "100vw";
+    root.style.height = "100vw";
+    root.innerHTML = "<header></header> <button id='dropBtn'>내리는 버튼</button>";
+    //console.dir(root);
+    const header =  root.children[0];    
+    header.innerHTML = "<nav></nav>";
+    header.style.width = "100%";
+    header.style.height = "25%";
+    header.style.backgroundColor = "cadetblue";
+    
+    const nav = header.children[0];
+    nav.style.width = "90%";
+    nav.style.backgroundColor = "salmon";
+
+    const dropBtn = document.getElementById('dropBtn');
+    let num = 0;
+    let count = 0;
+    let actionEvent = () => {
+      dropBtn.addEventListener('click', ()=>{
+        const dropAnnie = setInterval(()=>{
+          nav.style.height = `${num * 1.1}px`;
+          nav.style.transform = `rotate(0deg)`;
+          if (num === 300) {
+            nav.style.backgroundColor = "pink";            
+          }
+          if(num === 500) {
+            clearInterval(dropAnnie);
+            num = 0;            
+            const rotationNav =  setInterval(()=> {
+            nav.style.transform = `rotate(${count}deg)`;
+            if(count === 90) {clearInterval(rotationNav); num = 0; count=0;}
+            count++
+          }, 16);
+          }
+          num++;
+          
+        }, 16);
+      });
+          
+    }
+    
+    actionEvent();
+      
+  </script>
+</body>
+</html>

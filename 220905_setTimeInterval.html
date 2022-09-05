@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    #root{
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <section id="target" ></section>
+  </div>
+  <script>
+    const root = document.getElementById('root');
+    const targetSection  = document.getElementById('target');
+    const targetDiv = document.getElementsByClassName('targetDiv');
+
+    let size = 100;
+    
+    targetSection.style.backgroundColor = "cadetblue";
+
+    const timmer = setInterval(function() {
+      targetSection.style.width = `${size}px`;
+      targetSection.style.height = `${size}px`;
+      size++;
+      if(size === 500) {
+        targetSection.style.backgroundColor = "pink";
+      }
+      if(size === 1000) {
+        clearInterval(timmer);
+      }      
+      console.log(size);
+    }, 16);
+    // targetSection.innerHTML = "<div class= 'targetDiv'><div>";
+    targetSection.style.backgroundColor = "salmon"; // overriding 된 것 **자바 다시 공부해야 할듯
+      
+  </script>
+</body>
+</html>
