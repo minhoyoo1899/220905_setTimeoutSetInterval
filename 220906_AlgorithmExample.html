@@ -1,38 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <script>
     function googoodanCore(dan, limit) {
       let stepCount = 0;
       let resultArray = [];
+
       //init
       for (let i = 1; 1 <= limit; i++) {
-        let calc = dan*i;
+        let calc = dan * i;
         //multyply
 
-        if(Number.isInteger(calc) === false)  {
+        if (Number.isInteger(calc) === false) {
           calc = calc.toFixed(1);
-        }
-        //integer inspection
+        }//integer inspection
+        /**
+         * to Fixed() ===> 숫자를 고정 소수점 표기법(fixed-point notation)으로 표기 하는 메서드 
+         * 예를 들면 소수섬 5쨰짜리 표기가 있는 숫자를 잘라서 매개변수 숫자에 따라 그 값을 잘라낸다 
+         * function financial(x) {
+         *    return Number.parseFloat(x).toFixed(2);
+         * }
+         * 
+         * console.log(financial(123.456));
+         * // expected output: 123.46
+         * 
+         * console.log(financial(0.004));
+         * //expected output: 0.00
+         * 
+         * console.log(financial('1.23e+5'));
+         * //expected output: 123000.00s
+         * 
+         * 구문 numObj.toFixed([digits]);
+         * digit : 소수점 두에 나타날 자릿수. 0 이상 20이하의 값을 사용 할 수 있으며, 구현체에 따라 더 넓은 범위의 값을 지원 할 수도 있다. 값을 지정하지 않으면 0을 사용합니다. 
+         * 
+         * 반환값(return value) 
+         * 고정 소수점 표기법을 사용하여 나타낸 수를 문자열고 바꾼 값
+         * 
+         * 예외 
+         * RangeError : digit가 너무 작거나 너무 클 때. 값이 0과 100사이의 값이라면 RangerError를 유발하지 않는다. 구현체에 따라 더 크거나 작은 값을 지원 할 수있다. 
+         * TrpeError : Number가 객첼에서 호출한 경우
+         * 
+         * Explain
+         * toFixed()는 Number 객체를 주어진 digit 만큼의 소수점 이하 자리수를 정확하게 갖는 문자열 표현으로 반환한다. 소수점 이하의 길이가 길면 숫자를 반올림하고, 짧아서 부족할 경우 뒤를 0으로 채울 수 있다. 메서드를 호출한 숫자의 크기가 1e+21보다 크면 Number.prototype.toString()을 호출하여 받은 지수 표기법 결과를 대신 반환한다.
+        */
 
-        if(calc < 0 && i === limit) {
+        if (calc < 0 && i === limit) {
           console.log(Math.abs(calc));
         }
         // absolute value and max value
+        /**
+         * Absolute Value(절대 값) Math.abs()
+         * Math.abs()는 주어진 숫자의 절대값을 반환한다. x가 양수이거나 0이라면, x를 리턴, x가 음수라면 -x를 반환
+         * 
+         * 구문 : Math.abs(x)
+         * x : 숫자
+         * 
+         * 반환값(return value) : 주어진 숫자의 절대값
+         * 
+         * explain 
+         * abs()는 Math의 정적 메서드이므로, 사용자가 생성한 Math 객체의 메서드로 호출 할 수 없고 항상 Math.abs로 사용해야 한다. (Math는 생성자가 아니다.)
+         * 
+         * example
+         * 빈 객체나, 하나 이상의 요소를 가진 배열, 숫자가 아닌 문자열, undefined, 빈 매개변수를 받게 될 경우 NaN을 반환한다. null, 빈 문자열, 빈 배열을 imput하면 0을 return.
+         * 
+         *  Math.abs('-1');     // 1
+            Math.abs(-2);       // 2
+            Math.abs(null);     // 0
+            Math.abs('');       // 0
+            Math.abs([]);       // 0
+            Math.abs([2]);      // 2
+            Math.abs([1,2]);    // NaN
+            Math.abs({});       // NaN
+            Math.abs('string'); // NaN
+            Math.abs();         // NaN
+        */
 
         resultArray.push(calc);
         stepCount++;
       }
-      let reduceResult = resultArray.reduce(function(prev, curr) {
+      let reduceResult = resultArray.reduce(function (prev, curr) {
         return parseFloat(prev) + parseFloat(curr);
       });
       // reduce, get Value
+
+      /**
+       * parseInt, parseFloat
+       * parseFloat : 문자열이나 숫자열에서 숫자인 데이터들을 데이터 타입을 숫자로 만듦
+       * parseInt : 문자열 인자를 파싱하여 특정 진수(수의 진법체계에서 기준이 되는 값)의 정수를 반환
+       * 
+       * parseInt(string)
+         parseInt(string, radix)
+         string : 파싱할 매개변수의 값 문자열이 아닐 경우 ToString 춧항연산을 이용해 문자열로 변경했다가 다시 int로 변경
+      */
 
       console.log(`시그마 값 : ${reduceResult}`);
       console.log(`총 ${stepCount}번 실행`);
@@ -42,4 +109,5 @@
     console.log(googoodanCore(-3.2, 9));
   </script>
 </body>
+
 </html>
