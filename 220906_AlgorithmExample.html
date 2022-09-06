@@ -15,16 +15,17 @@
       let resultArray = [];
 
       //init
-      for (let i = 1; 1 <= limit; i++) {
+      for (let i = 1; i <= limit; i++) {
         let calc = dan * i;
         //multyply
 
         if (Number.isInteger(calc) === false) {
           calc = calc.toFixed(1);
         }//integer inspection
+        
         /**
          * to Fixed() ===> 숫자를 고정 소수점 표기법(fixed-point notation)으로 표기 하는 메서드 
-         * 예를 들면 소수섬 5쨰짜리 표기가 있는 숫자를 잘라서 매개변수 숫자에 따라 그 값을 잘라낸다 
+         * 예를 들면 소수섬 5쨰짜리 표기가 있는 숫자를 잘라서 매개변수 숫자에 따라 그 값을 잘라낸다.
          * function financial(x) {
          *    return Number.parseFloat(x).toFixed(2);
          * }
@@ -41,11 +42,11 @@
          * 구문 numObj.toFixed([digits]);
          * digit : 소수점 두에 나타날 자릿수. 0 이상 20이하의 값을 사용 할 수 있으며, 구현체에 따라 더 넓은 범위의 값을 지원 할 수도 있다. 값을 지정하지 않으면 0을 사용합니다. 
          * 
-         * 반환값(return value) 
+         * 반환값(return value)
          * 고정 소수점 표기법을 사용하여 나타낸 수를 문자열고 바꾼 값
          * 
          * 예외 
-         * RangeError : digit가 너무 작거나 너무 클 때. 값이 0과 100사이의 값이라면 RangerError를 유발하지 않는다. 구현체에 따라 더 크거나 작은 값을 지원 할 수있다. 
+         * RangeError : digit가 너무 작거나 너무 클 때. 값이 0과 100사이의 값이라면 RangerError를 유발하지 않는다. 구현체에 따라 더 크거나 작은 값을 지원 할 수있다.
          * TrpeError : Number가 객첼에서 호출한 경우
          * 
          * Explain
@@ -56,8 +57,8 @@
           console.log(Math.abs(calc));
         }
         // absolute value and max value
-        /**
-         * Absolute Value(절대 값) Math.abs()
+        /*
+         * Absolute Value(절대 값) Math.abs();
          * Math.abs()는 주어진 숫자의 절대값을 반환한다. x가 양수이거나 0이라면, x를 리턴, x가 음수라면 -x를 반환
          * 
          * 구문 : Math.abs(x)
@@ -98,7 +99,7 @@
        * 
        * parseInt(string)
          parseInt(string, radix)
-         string : 파싱할 매개변수의 값 문자열이 아닐 경우 ToString 춧항연산을 이용해 문자열로 변경했다가 다시 int로 변경
+         string : 파싱할 매개변수의 값 문자열이 아닐 경우 ToString 추상연산을 이용해 문자열로 변경했다가 다시 int로 변경
       */
 
       console.log(`시그마 값 : ${reduceResult}`);
