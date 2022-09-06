@@ -8,9 +8,8 @@ console.log("a");
 
 // 순서를 어기는 케이스
 let b = setTimeout(function () {
-  console.log("b");  
+  console.log("b");
 }, 0);
 
 //일반 사용 방식
-console.log("c");  
-
+console.log("c");

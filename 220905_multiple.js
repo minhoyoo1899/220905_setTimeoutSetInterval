@@ -7,7 +7,6 @@
 //   const multiInterval = setInterval();
 // }
 
-
 // const funcMultiple = (val1, val2) => {
 //   for (let i = 0; i < val1.lengh; i++) {
 //     let a = 1;

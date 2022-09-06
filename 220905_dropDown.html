@@ -21,7 +21,7 @@
     root.style.height = "100vw";
     root.innerHTML = "<header></header> <button id='dropBtn'>내리는 버튼</button>";
     //console.dir(root);
-    const header =  root.children[0];    
+    const header =  root.children[0];
     header.innerHTML = "<nav></nav>";
     header.style.width = "100%";
     header.style.height = "25%";
@@ -40,26 +40,24 @@
           nav.style.height = `${num * 1.1}px`;
           nav.style.transform = `rotate(0deg)`;
           if (num === 300) {
-            nav.style.backgroundColor = "pink";            
+            nav.style.backgroundColor = "pink";
           }
           if(num === 500) {
             clearInterval(dropAnnie);
-            num = 0;            
+            num = 0;
             const rotationNav =  setInterval(()=> {
             nav.style.transform = `rotate(${count}deg)`;
             if(count === 90) {clearInterval(rotationNav); num = 0; count=0;}
-            count++
+            count++;
           }, 16);
           }
-          num++;
-          
+          num++; 
         }, 16);
-      });
-          
+      });          
     }
-    
+
     actionEvent();
-      
+
   </script>
 </body>
 </html>
